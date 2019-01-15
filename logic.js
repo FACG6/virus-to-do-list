@@ -53,7 +53,11 @@ var todoFunctions = {
       // this element will have its done value toggled
       // hint: array.map
     },
-    sortTodos: function(todos, sortFunction) {
+    sortTodos: function(todos) {
+      const newArray = [...todos];
+      let success = newArray.filter(obj => obj['done'] == true);
+     let  fail = newArray.filter(obj => obj['done'] == false);
+      return success.concat(fail);
       // stretch goal! Do this last
       // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
       // sortFunction will have same signature as the sort function in array.sort
