@@ -1,0 +1,24 @@
+{
+  "name": "virus-to-do-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dom.js",
+  "scripts": {
+    "test": "nodemon ./test.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FACG6/virus-to-do-list.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FACG6/virus-to-do-list/issues"
+  },
+  "homepage": "https://github.com/FACG6/virus-to-do-list#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.9",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.2"
+  }
+}
