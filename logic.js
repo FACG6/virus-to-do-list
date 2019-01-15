@@ -35,6 +35,16 @@ var todoFunctions = {
       // hint: array.filter
     },
     markTodo: function(todos, idToMark) {
+      const copy_todos = [...todos];
+
+    return copy_todos.map(element =>{
+        if (element.id === idToMark){
+        element.done = !element.done;
+        }
+    return element;
+    });
+      
+
       // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
       // in the new todo array, all elements will remain unchanged except the one with id: idToMark
       // this element will have its done value toggled
