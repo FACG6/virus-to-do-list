@@ -50,6 +50,25 @@ test('Testing 2: MarkToDo Function', function (t) {
   t.deepEqual(actualValue, expectedValue, "Object with id 1 should have done value false");
   t.end();
 });
+
+test('test delete to do function',function(t){   
+  const actual = logic.deleteTodo([],1);
+  const expected = [];
+  t.deepEqual(actual, expected, 'to-do item has removed');
+  t.end();
+});
+test('test delete to do function',function(t){   
+  const actual = logic.deleteTodo([{ id: 0, description: 'b', done: false }, { id: 1, description: 'b', done: false }, { id: 2, description: 'b', done: false }],3);
+  const expected = [{ id: 0, description: 'b', done: false }, { id: 1, description: 'b', done: false }, { id: 2, description: 'b', done: false }];
+  t.deepEqual(actual, expected, 'to-do item has removed');
+  t.end();
+});
+test('test delete to do function',function(t){   
+  const actual = logic.deleteTodo([{ id: 0, description: 'b', done: false }],0);
+  const expected = [];
+  t.deepEqual(actual, expected, 'to-do item has removed');
+  t.end();
+});
 test('Testing: Function sortTodos', function(t) {
   const actualValue = logic.sortTodos([{id: 0, description: "Visiting doctor", done: true}, {description: "Doing my homework", done: false}])
   const expectedValue = [ { id: 0, description: 'Visiting doctor', done: true }, { description: 'Doing my homework', done: false } ]
@@ -63,4 +82,10 @@ test('Testing: Function sortTodos', function(t) {
   t.end();
 });
 
+test('test delete to do function',function(t){   
+  const actual = logic.deleteTodo([{ id: 0, description: 'b', done: false }, { id: 1, description: 'b', done: false }, { id: 2, description: 'b', done: false }], 1);
+  const expected = [{ id: 0, description: 'b', done: false }, { id: 2, description: 'b', done: false }];
+  t.deepEqual(actual, expected, 'to-do item has removed');
+  t.end();
+});
 
