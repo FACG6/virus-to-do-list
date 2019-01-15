@@ -28,12 +28,9 @@ var todoFunctions = {
       // returns a new array, it should contain todos with the newTodo added to the end.
       // add an id to the newTodo. You can use the generateId function to create an id.
       // hint: array.concat
-      if(!!todos.find(item => item.description === newTodo.description)) {
-        return todos;
-      } else {
-        const newTodos = todos.concat(newTodo);
+        const id = this.generateId();
+        const newTodos = todos.concat({description: newTodo, id, done:false});
         return newTodos;
-      }
     },
     deleteTodo: function(todos, idToDelete) {
       // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
