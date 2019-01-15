@@ -50,6 +50,17 @@ test('Testing 2: MarkToDo Function', function (t) {
   t.deepEqual(actualValue, expectedValue, "Object with id 1 should have done value false");
   t.end();
 });
-
+test('Testing: Function sortTodos', function(t) {
+  const actualValue = logic.sortTodos([{id: 0, description: "Visiting doctor", done: true}, {description: "Doing my homework", done: false}])
+  const expectedValue = [ { id: 0, description: 'Visiting doctor', done: true }, { description: 'Doing my homework', done: false } ]
+  t.deepEqual(actualValue, expectedValue, "Object with true value first then Object with false value")
+  t.end();
+});
+test('Testing: Function sortTodos', function(t) {
+  const actualValue = logic.sortTodos([{id: 0, description: "Visiting doctor", done: false}, {description: "Doing my homework", done: true}])
+  const expectedValue = [ {description: "Doing my homework", done: true}, {id: 0, description: "Visiting doctor", done: false} ]
+  t.deepEqual(actualValue, expectedValue, "Object with true value first then Object with false value")
+  t.end();
+});
 
 
