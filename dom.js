@@ -46,8 +46,9 @@
 
     // this adds the delete button
     var deleteButtonNode = document.createElement('i');
-    deleteButtonNode.classList.add('fas', 'fa-trash-alt')
+    deleteButtonNode.classList.add('fas', 'fa-trash-alt','deleteicon')
     deleteButtonNode.addEventListener('click', function (event) {
+    
       var newState = todoFunctions.deleteTodo(state, todo.id);
       update(newState);
     });
@@ -56,7 +57,7 @@
     // add markTodo button
 
     var markButtonNode = document.createElement('i');
-    markButtonNode.classList.add("fas", "fa-check");
+    markButtonNode.classList.add("fas", "fa-check",'check_icon');
     markButtonNode.addEventListener('click', function (event) {
       let marked = todoFunctions.markTodo(state, todo.id);
       let newState = todoFunctions.sortTodos(marked, arrange);
@@ -108,6 +109,7 @@
   // you do not need to change this function
   var renderState = function (state) {
     var todoListNode = document.createElement('ul');
+    todoListNode.classList.add("todolist");
 
     state.forEach(function (todo) {
       todoListNode.appendChild(createTodoNode(todo));

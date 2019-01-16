@@ -1,0 +1,124 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border-radius: 5px;
+
+}
+body{
+    background-image: url(preview16.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:720px;
+}
+.add-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    color: black;
+}
+.add-form input[type="text"]{
+    width: 90%;
+    margin:0 auto;
+    background: white;
+    border-radius: 5px;
+    outline: none;
+    margin-top: 0.7em;
+}
+.container{
+    background-color: rgba(0, 0, 0, 0.267);
+    width: 50%;
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+}
+.entery-div{
+margin-top: 10%;
+background-color:rgba(0, 0, 0, 0.432);
+height: 400px;
+width: 320px;
+overflow: hidden;
+}
+.entery-div h2{
+text-align: center;
+}
+
+input[type="text"]{
+    /* border:1px solid rgb(255, 189, 255); */
+    width: 100%;
+
+/* border:2px solid rgb(255, 189, 255); */
+padding: 0.8em;
+
+}
+
+
+
+.todolist{
+    margin:1.3em;
+    list-style: none;
+    /* display: felx;
+    flex-direction: column; */
+    text-align: center;
+}
+.list_item{
+    margin:1.2em;
+    padding:1.2em;
+    background-color:rgb(255, 255, 255);
+    color: black;
+    padding:1.0em 1em 1.8em 0.6em;
+}
+.btn{
+    text-align: center;
+ 
+    } 
+    .addbutton{
+        padding:1.3em;
+
+        width:45%;
+        border:none;
+        outline:none;
+        color:#fff;
+        margin:1.25em auto;
+        font-size:14px;
+        background-color:#ff6a80;
+        text-shadow:0 1px rgba(0,0,0,0.4);
+        box-shadow:0 3px 2px 0 #ff3755;
+        font-weight:700;
+        background-image:url(../images/1.png);
+        background-repeat:no-repeat;
+        background-position:200px
+        }
+.addbutton:hover{
+        background-color:#ff566f;
+        cursor:pointer
+        }
+        .deleteicon ,.check_icon{
+        margin-left:1.4em;
+        float:right;
+        vertical-align: middle;
+        padding-top:-0.5em;
+        margin-top: auto;
+        }
+        .todo_title{
+            float:left;
+            vertical-align: middle;
+
+        }
+        .deleteicon:hover {
+            color:red;
+        }
+        .check_icon:focus {
+            color: green;
+        }
+        
+
+        .marked_node{
+            background-image:linear-gradient(#00b09b,#00b09b);
+        }
+        .mark{
+            text-decoration: line-through;
+        }
+/*  */
