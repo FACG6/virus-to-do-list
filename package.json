@@ -4,7 +4,8 @@
   "description": "",
   "main": "dom.js",
   "scripts": {
-    "test": "nodemon ./test.js | tap-spec"
+    "test": "nodemon ./test.js | tap-spec",
+    "cover": "istanbul cover tape ./test.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/FACG6/virus-to-do-list#readme",
   "devDependencies": {
+    "istanbul": "^0.4.5",
     "nodemon": "^1.18.9",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.2"
