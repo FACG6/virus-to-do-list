@@ -8,15 +8,18 @@
 
   var state = [{
       id: -3,
-      description: 'first todo'
+      description: 'first todo',
+      done: false
     },
     {
       id: -2,
-      description: 'second todo'
+      description: 'second todo',
+      done: false
     },
     {
       id: -1,
-      description: 'third todo'
+      description: 'third todo',
+      done: false
     },
   ]; // this is our initial todoList
 
@@ -25,20 +28,18 @@
     var todoNode = document.createElement('li');
     todoNode.classList.add('list_item');
     // you will need to use addEventListener
-
-    //Adding style to completed list
-
     // add span holding description
     const span = document.createElement('span');
     span.classList.add('todo_title');
     span.textContent = todo.description;
     todoNode.appendChild(span);
 
+    //Adding style to completed list
+
     if (todo.done === true) {
       span.classList.add("mark");
       todoNode.classList.add("marked_node");
-    }
-    else{
+    } else {
       span.classList.remove("mark");
       todoNode.classList.remove("marked_node");
     }
@@ -52,9 +53,16 @@
     });
     todoNode.appendChild(deleteButtonNode);
 
-    
     // add markTodo button
 
+    var markButtonNode = document.createElement('i');
+    markButtonNode.classList.add("fas", "fa-check");
+    markButtonNode.addEventListener('click', function (event) {
+      let marked = todoFunctions.markTodo(state, todo.id);
+      let newState = todoFunctions.sortTodos(marked, arrange);
+      update(newState);
+    });
+    todoNode.appendChild(markButtonNode);
     // add classes for css
 
     return todoNode;
@@ -75,13 +83,20 @@
         alert("No spaces allowed");
       }
       // hint: todoFunctions.addTodo
-     else{let newState = todoFunctions.addTodo(state, description);
-      console.log(newState);
-      // ?? change this!
-      update(newState);
-     }
+      else {
+        let newState = todoFunctions.addTodo(state, description);
+        console.log(newState);
+        // ?? change this!
+        update(newState);
+      }
     });
-  
+
+  }
+
+  // Create Arrange Function 
+
+  var arrange = function(a,b){
+    return a.done - b.done;
   }
 
   // you should not need to change this function

@@ -42,12 +42,14 @@ var todoFunctions = {
     markTodo: function(todos, idToMark) {
       const copy_todos = [...todos];
 
-    return copy_todos.map(element =>{
-        if (element.id === idToMark){
-        element.done = !element.done;
+    var markfun = copy_todos.map(element =>{
+        if (element.id === idToMark) {
+          element.done = !element.done;
         }
-    return element;
-    });
+        return element;
+      });
+
+    return markfun;
       
 
       // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
@@ -55,16 +57,14 @@ var todoFunctions = {
       // this element will have its done value toggled
       // hint: array.map
     },
-    sortTodos: function(todos) {
+    sortTodos: function(todos, sortFunction) {
       const newArray = [...todos];
-      let success = newArray.filter(obj => obj['done'] == true);
-     let  fail = newArray.filter(obj => obj['done'] == false);
-      return success.concat(fail);
+      return newArray.sort(sortFunction);
       // stretch goal! Do this last
       // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
       // sortFunction will have same signature as the sort function in array.sort
       // hint: array.slice, array.sort
-    },
+    }
   };
   
   
