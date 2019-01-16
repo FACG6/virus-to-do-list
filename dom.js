@@ -6,22 +6,7 @@
   var container = document.getElementById('todo-container');
   var addTodoForm = document.getElementById('add-todo');
 
-  var state = [{
-      id: -3,
-      description: 'first todo',
-      done: false
-    },
-    {
-      id: -2,
-      description: 'second todo',
-      done: false
-    },
-    {
-      id: -1,
-      description: 'third todo',
-      done: false
-    },
-  ]; // this is our initial todoList
+  var state = []; // this is our initial todoList
 
   // This function takes a todo, it returns the DOM node representing that todo
   var createTodoNode = function (todo) {
@@ -46,20 +31,21 @@
 
     // this adds the delete button
     var deleteButtonNode = document.createElement('i');
-    deleteButtonNode.classList.add('fas', 'fa-trash-alt')
-      deleteButtonNode.addEventListener('click', function (event) {
-        if(confirm){
-          alert("Are you sure you want to delete it?")
-        }
-      var newState = todoFunctions.deleteTodo(state, todo.id);
-      update(newState);
+    deleteButtonNode.classList.add('fas', 'fa-trash-alt', 'deleteicon')
+    deleteButtonNode.addEventListener('click', function (event) {
+      if (confirm('Are you sure ?')) {
+        var newState = todoFunctions.deleteTodo(state, todo.id);
+        update(newState);
+
+      }
+
     });
     todoNode.appendChild(deleteButtonNode);
 
     // add markTodo button
 
     var markButtonNode = document.createElement('i');
-    markButtonNode.classList.add("fas", "fa-check");
+    markButtonNode.classList.add("fas", "fa-check", 'check_icon');
     markButtonNode.addEventListener('click', function (event) {
       let marked = todoFunctions.markTodo(state, todo.id);
       let newState = todoFunctions.sortTodos(marked, arrange);
@@ -82,13 +68,11 @@
       let description = document.querySelector('input[type="text"]').value;
       // event.target ....
       if (!description.trim()) {
-        alert("No spaces allowed");
+        alert("Not allowed");
       }
       // hint: todoFunctions.addTodo
       else {
         let newState = todoFunctions.addTodo(state, description);
-        console.log(newState);
-        // ?? change this!
         update(newState);
       }
     });
@@ -97,7 +81,7 @@
 
   // Create Arrange Function 
 
-  var arrange = function(a,b){
+  var arrange = function (a, b) {
     return a.done - b.done;
   }
 
@@ -110,6 +94,7 @@
   // you do not need to change this function
   var renderState = function (state) {
     var todoListNode = document.createElement('ul');
+    todoListNode.classList.add("todolist");
 
     state.forEach(function (todo) {
       todoListNode.appendChild(createTodoNode(todo));

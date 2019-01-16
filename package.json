@@ -20,5 +20,6 @@
     "nodemon": "^1.18.9",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.2"
-  }
+  },
+  "dependencies": {}
 }
