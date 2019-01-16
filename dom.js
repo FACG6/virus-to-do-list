@@ -47,7 +47,10 @@
     // this adds the delete button
     var deleteButtonNode = document.createElement('i');
     deleteButtonNode.classList.add('fas', 'fa-trash-alt')
-    deleteButtonNode.addEventListener('click', function (event) {
+      deleteButtonNode.addEventListener('click', function (event) {
+        if(confirm){
+          alert("Are you sure you want to delete it?")
+        }
       var newState = todoFunctions.deleteTodo(state, todo.id);
       update(newState);
     });
@@ -60,6 +63,7 @@
     markButtonNode.addEventListener('click', function (event) {
       let marked = todoFunctions.markTodo(state, todo.id);
       let newState = todoFunctions.sortTodos(marked, arrange);
+      console.log(marked, newState);
       update(newState);
     });
     todoNode.appendChild(markButtonNode);
@@ -76,8 +80,6 @@
       // what is inside event.target?
       event.preventDefault();
       let description = document.querySelector('input[type="text"]').value;
-      console.log(description);
-      console.log(typeof description);
       // event.target ....
       if (!description.trim()) {
         alert("No spaces allowed");

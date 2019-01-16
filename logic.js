@@ -48,6 +48,7 @@ var todoFunctions = {
         }
         return element;
       });
+      console.log(markfun);
 
     return markfun;
       
@@ -59,7 +60,9 @@ var todoFunctions = {
     },
     sortTodos: function(todos, sortFunction) {
       const newArray = [...todos];
-      return newArray.sort(sortFunction);
+      let sorted = newArray.sort(sortFunction);
+      console.log(sorted);
+      return sorted;
       // stretch goal! Do this last
       // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
       // sortFunction will have same signature as the sort function in array.sort
