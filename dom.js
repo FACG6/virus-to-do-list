@@ -17,6 +17,7 @@
       var todoNode = document.createElement('li');
       // you will need to use addEventListener
   
+  
       // add span holding description
   
       // this adds the delete button
@@ -28,7 +29,13 @@
       todoNode.appendChild(deleteButtonNode);
   
       // add markTodo button
-  
+
+  var markButtonNode = document.createElement('button');
+  markButtonNode.addEventListener('click', function(event) {
+        var newState = todoFunctions.markTodo(state, todo.id);
+        update(newState);
+      });
+      todoNode.appendChild(markButtonNode);
       // add classes for css
   
       return todoNode;
