@@ -8,7 +8,6 @@ test('Testing 2: AddToDo Function', function(t) {
   t.deepEqual(actual, expected, 'The Item has added');
   actual = logic.addTodo([{description: 'Forth One', id: 1, done: false}], 'Forth One');
   expected = [{description: 'Forth One', id: 1, done: false},{description: 'Forth One', id: 2, done: false}];
- console.log(actual);
   t.deepEqual(actual,expected,'The Item has added');
   t.end();  
 });
@@ -39,6 +38,7 @@ const expectedValue = [{
   t.end();
 });
 
+
 test('Testing 2: MarkToDo Function', function (t) {
   const actualValue = logic.markTodo([{
     id: 0,
@@ -64,36 +64,52 @@ test('Testing 2: MarkToDo Function', function (t) {
   t.end();
 });
 
+
 test('test delete to do function',function(t){   
   const actual = logic.deleteTodo([],1);
   const expected = [];
   t.deepEqual(actual, expected, 'to-do item has removed');
   t.end();
 });
+
+
 test('test delete to do function',function(t){   
   const actual = logic.deleteTodo([{ id: 0, description: 'b', done: false }, { id: 1, description: 'b', done: false }, { id: 2, description: 'b', done: false }],3);
   const expected = [{ id: 0, description: 'b', done: false }, { id: 1, description: 'b', done: false }, { id: 2, description: 'b', done: false }];
   t.deepEqual(actual, expected, 'to-do item has removed');
   t.end();
 });
+
+
 test('test delete to do function',function(t){   
   const actual = logic.deleteTodo([{ id: 0, description: 'b', done: false }],0);
   const expected = [];
   t.deepEqual(actual, expected, 'to-do item has removed');
   t.end();
 });
+
+
 test('Testing: Function sortTodos', function(t) {
-  const actualValue = logic.sortTodos([{id: 0, description: "Visiting doctor", done: true}, {description: "Doing my homework", done: false}])
-  const expectedValue = [ { id: 0, description: 'Visiting doctor', done: true }, { description: 'Doing my homework', done: false } ]
+  var arrange = function(a,b){
+    return a.done - b.done;
+  }
+  const actualValue = logic.sortTodos([{id: 0, description: "Visiting doctor", done: true}, {description: "Doing my homework", done: false}], arrange)
+  const expectedValue = [ {description: "Doing my homework", done: false}, {id: 0, description: "Visiting doctor", done: true}];
   t.deepEqual(actualValue, expectedValue, "Object with true value first then Object with false value")
   t.end();
 });
+
+
 test('Testing: Function sortTodos', function(t) {
-  const actualValue = logic.sortTodos([{id: 0, description: "Visiting doctor", done: false}, {description: "Doing my homework", done: true}])
-  const expectedValue = [ {description: "Doing my homework", done: true}, {id: 0, description: "Visiting doctor", done: false} ]
+  var arrange = function(a,b){
+    return a.done - b.done;
+  }
+  const actualValue = logic.sortTodos([{id: 0, description: "Visiting doctor", done: false}, {description: "Doing my homework", done: true}], arrange)
+  const expectedValue = [{id: 0, description: "Visiting doctor", done: false}, {description: "Doing my homework", done: true}]
   t.deepEqual(actualValue, expectedValue, "Object with true value first then Object with false value")
   t.end();
 });
+
 
 test('test delete to do function',function(t){   
   const actual = logic.deleteTodo([{ id: 0, description: 'b', done: false }, { id: 1, description: 'b', done: false }, { id: 2, description: 'b', done: false }], 1);

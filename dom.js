@@ -6,22 +6,7 @@
   var container = document.getElementById('todo-container');
   var addTodoForm = document.getElementById('add-todo');
 
-  var state = [{
-      id: -3,
-      description: 'first todo',
-      done: false
-    },
-    {
-      id: -2,
-      description: 'second todo',
-      done: false
-    },
-    {
-      id: -1,
-      description: 'third todo',
-      done: false
-    },
-  ]; // this is our initial todoList
+  var state = []; // this is our initial todoList
 
   // This function takes a todo, it returns the DOM node representing that todo
   var createTodoNode = function (todo) {
@@ -48,9 +33,10 @@
     var deleteButtonNode = document.createElement('i');
     deleteButtonNode.classList.add('fas', 'fa-trash-alt','deleteicon')
     deleteButtonNode.addEventListener('click', function (event) {
-    
-      var newState = todoFunctions.deleteTodo(state, todo.id);
-      update(newState);
+      if(confirm('Are you sure ?')){
+        var newState = todoFunctions.deleteTodo(state, todo.id);
+        update(newState);
+      }
     });
     todoNode.appendChild(deleteButtonNode);
 
