@@ -1,20 +1,17 @@
 // Part 1. Fill in any missing parts of the todoFunction object!
 // you can access these on todo.todoFunctions
 // For part one we expect you to use tdd
-var todoFunctions = {
+const todoFunctions = {
   // todoFunctions.generateId() will give you a unique id
   // You do not need to understand the implementation of this function.
   generateId: (function () {
-    var idCounter = 0;
+    let idCounter = 0;
 
     function incrementCounter() {
       return (idCounter += 1);
     }
-
     return incrementCounter;
-  })(),
-
-  //cloneArrayOfObjects will create a copy of the todos array 
+  })(), //cloneArrayOfObjects will create a copy of the todos array 
   //changes to the new array don't affect the original
   addTodo: function (todos, newTodo) {
     // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
@@ -38,17 +35,12 @@ var todoFunctions = {
   },
   markTodo: function (todos, idToMark) {
     const copy_todos = [...todos];
-
-    var markfun = copy_todos.map(element => {
+    return copy_todos.map(element => {
       if (element.id === idToMark) {
         element.done = !element.done;
       }
       return element;
     });
-
-    return markfun;
-
-
     // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
     // in the new todo array, all elements will remain unchanged except the one with id: idToMark
     // this element will have its done value toggled
@@ -63,9 +55,9 @@ var todoFunctions = {
     // sortFunction will have same signature as the sort function in array.sort
     // hint: array.slice, array.sort
   }
-};
+}
 
-
+;
 // Why is this if statement necessary?
 // The answer has something to do with needing to run code both in the browser and in Node.js
 // See this article for more details: 
