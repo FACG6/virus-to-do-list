@@ -1,18 +1,18 @@
 /* start global  */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    border-radius: 5px;
     font-family: 'Roboto Condensed', sans-serif;
-
 }
 
 body {
-    background-image: url(preview16.jpg);
+    background-image: url(img/preview16.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
 }
 
 .container {
@@ -24,16 +24,19 @@ body {
     margin-top: 5%;
 }
 
+
 /* End global  */
+
+
 /* Start The header  */
+
 h2 {
     color: white;
     background-color: rgba(0, 0, 0, 0.500);
     padding: 1em;
     text-align: center;
     letter-spacing: 0.3em;
-
-
+    text-shadow: 0 1px rgba(0, 0, 0, 0.4);
 }
 
 h2 span {
@@ -41,8 +44,12 @@ h2 span {
     font-size: 1.2em;
 }
 
+
 /* End The header  */
+
+
 /* start the form tag  */
+
 .add-form {
     display: flex;
     flex-direction: column;
@@ -55,38 +62,35 @@ h2 span {
     width: 55%;
     margin: 0 auto;
     background: white;
-    border-radius: 5px;
-    outline: none;
     margin-top: 0.7rem;
     transform: scale(1);
     transition: width 0.7s;
     height: 4em;
     font-size: 1em;
-    
-
+    padding: 0.8em;
 }
 
 .add-form input[type="text"]:focus {
     width: 90%;
 }
 
-input[type="text"] {
-    /* border:1px solid rgb(255, 189, 255); */
-    width: 100%;
-    /* border:2px solid rgb(255, 189, 255); */
-    padding: 0.8em;
-
+.add-form input[type="text"],
+.list_item {
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    outline: none;
+    border: none;
 }
 
+
 /* end the form  */
+
 
 /* start the list  */
 
 .todolist {
     margin: 1.3em;
     list-style: none;
-    /* display: felx;
-    flex-direction: column; */
     text-align: center;
 }
 
@@ -98,30 +102,32 @@ input[type="text"] {
     padding: 1.0em 1em 1.8em 0.6em;
 }
 
+
 /* end list  */
+
+
 /* start button  */
+
 .btn {
     text-align: center;
-
 }
 
 .addbutton {
     padding: 0.7rem;
-
     width: 55%;
     border: none;
     outline: none;
+    border-radius: 5px;
     color: #fff;
     margin: 1.25rem auto;
     font-size: 14px;
     background-color: #ff6a80;
     text-shadow: 0 1px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 3px 2px 0 #ff3755;
+    box-shadow: 0 2px 2px 0 #a25561;
     font-weight: 700;
-    background-image: url(../images/1.png);
     background-repeat: no-repeat;
     background-position: 200px;
-    font-size: 1em;
+    font-size: 1.1em;
 }
 
 .addbutton:hover {
@@ -130,7 +136,10 @@ input[type="text"] {
 }
 
 /* end button  */
+
+
 /* start icon  */
+
 .deleteicon,
 .check_icon {
     margin-left: 1.4em;
@@ -143,7 +152,6 @@ input[type="text"] {
 .todo_title {
     float: left;
     vertical-align: middle;
-
 }
 
 .deleteicon:hover {
@@ -155,10 +163,16 @@ input[type="text"] {
 }
 
 /* end icon  */
+
+
 /* mark the done work */
 
 .marked_node {
-    background-image: linear-gradient(#00b09b, #00b09b);
+    background-color: rgba(38, 193, 84, .7);
+}
+
+.marked_node .check_icon {
+    color: #0a5f0a;
 }
 
 .mark {
@@ -168,14 +182,15 @@ input[type="text"] {
 /* End  */
 
 /* this is the media query styles  */
-@media(max-width:600px) {
 
-    .container {
-        width: 95%;
-        margin: 10% auto;
+@media(max-width:700px) {
+    h2 {
+        font-size: 2em;
     }
 
-
+    .container {
+        width: 100%;
+    }
 }
 
 /*  */

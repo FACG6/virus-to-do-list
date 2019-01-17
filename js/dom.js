@@ -3,14 +3,15 @@
 // it keeps everything inside hidden from the rest of our application
 (function () {
   // This is the dom node where we will keep our todo
-  var container = document.getElementById('todo-container');
-  var addTodoForm = document.getElementById('add-todo');
+  const container = document.getElementById('todo-container');
+  const addTodoForm = document.getElementById('add-todo');
 
-  var state = []; // this is our initial todoList
+  let state = []; // this is our initial todoList
 
+  
   // This function takes a todo, it returns the DOM node representing that todo
-  var createTodoNode = function (todo) {
-    var todoNode = document.createElement('li');
+  const createTodoNode = function (todo) {
+    const todoNode = document.createElement('li');
     todoNode.classList.add('list_item');
     // you will need to use addEventListener
     // add span holding description
@@ -30,13 +31,12 @@
     }
 
     // this adds the delete button
-    var deleteButtonNode = document.createElement('i');
+    const deleteButtonNode = document.createElement('i');
     deleteButtonNode.classList.add('fas', 'fa-trash-alt', 'deleteicon')
     deleteButtonNode.addEventListener('click', function (event) {
-      if (confirm('Are you sure ?')) {
-        var newState = todoFunctions.deleteTodo(state, todo.id);
+      if (confirm('Are you sure?')) {
+        const newState = todoFunctions.deleteTodo(state, todo.id);
         update(newState);
-
       }
 
     });
@@ -44,16 +44,14 @@
 
     // add markTodo button
 
-    var markButtonNode = document.createElement('i');
+    const markButtonNode = document.createElement('i');
     markButtonNode.classList.add("fas", "fa-check", 'check_icon');
     markButtonNode.addEventListener('click', function (event) {
-      let marked = todoFunctions.markTodo(state, todo.id);
-      let newState = todoFunctions.sortTodos(marked, arrange);
-      console.log(marked, newState);
+      const marked = todoFunctions.markTodo(state, todo.id);
+      const newState = todoFunctions.sortTodos(marked, arrange);
       update(newState);
     });
     todoNode.appendChild(markButtonNode);
-    // add classes for css
 
     return todoNode;
   };
@@ -65,14 +63,18 @@
       // what does event.preventDefault do?
       // what is inside event.target?
       event.preventDefault();
-      let description = document.querySelector('input[type="text"]').value;
-      // event.target ....
-      if (!description.trim()) {
-        alert("Not allowed");
+      const description = document.querySelector('input[type="text"]').value;
+
+      // Testing: if the user enters anything that does not include at least one letter, 
+      // it won't be accepted, for example "123455", "/-*%$", ".", or ""
+      // Yet, for example, values such as "hello 456", "kata 12", "hello -5/6%" are all accepted
+
+      if (!/[A-Z-a-z]/.test(description)){  
+        alert("Not allowed. Please Enter a word");
       }
       // hint: todoFunctions.addTodo
       else {
-        let newState = todoFunctions.addTodo(state, description);
+        const newState = todoFunctions.addTodo(state, description);
         update(newState);
       }
     });
@@ -81,24 +83,25 @@
 
   // Create Arrange Function 
 
-  var arrange = function (a, b) {
-    return a.done - b.done;
+  const arrange = function (value1, value2) {
+    return value1.done - value2.done;
   }
 
   // you should not need to change this function
-  var update = function (newState) {
+  const update = function (newState) {
     state = newState;
     renderState(state);
   };
 
   // you do not need to change this function
-  var renderState = function (state) {
-    var todoListNode = document.createElement('ul');
+  const renderState = function (state) {
+    const todoListNode = document.createElement('ul');
     todoListNode.classList.add("todolist");
 
     state.forEach(function (todo) {
       todoListNode.appendChild(createTodoNode(todo));
     });
+    
 
     // you may want to add a class for css
     container.replaceChild(todoListNode, container.firstChild);
