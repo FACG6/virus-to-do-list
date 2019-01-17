@@ -1,5 +1,5 @@
-var test = require('tape');
-var logic = require('./logic');
+const test = require('tape');
+const logic = require('./logic');
 
 
 test('Testing 2: AddToDo Function', function (t) {
@@ -132,7 +132,7 @@ test('test delete to do function', function (t) {
 
 
 test('Testing: Function sortTodos', function (t) {
-  var arrange = function (a, b) {
+  const arrange = function (a, b) {
     return a.done - b.done;
   }
   const actualValue = logic.sortTodos([{
@@ -157,7 +157,7 @@ test('Testing: Function sortTodos', function (t) {
 
 
 test('Testing: Function sortTodos', function (t) {
-  var arrange = function (a, b) {
+  const arrange = function (a, b) {
     return a.done - b.done;
   }
   const actualValue = logic.sortTodos([{
