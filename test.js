@@ -80,7 +80,11 @@ test('Testing 2: MarkToDo Function', function (t) {
 
 
 test('test delete to do function', function (t) {
-  const actual = logic.deleteTodo([], 1);
+  const actual = logic.deleteTodo([{
+    id: 0,
+    description: 'b',
+    done: false
+  }], 0);
   const expected = [];
   t.deepEqual(actual, expected, 'to-do item has removed');
   t.end();
@@ -100,7 +104,7 @@ test('test delete to do function', function (t) {
     id: 2,
     description: 'b',
     done: false
-  }], 3);
+  }], 2);
   const expected = [{
     id: 0,
     description: 'b',
@@ -109,11 +113,7 @@ test('test delete to do function', function (t) {
     id: 1,
     description: 'b',
     done: false
-  }, {
-    id: 2,
-    description: 'b',
-    done: false
-  }];
+  }, ];
   t.deepEqual(actual, expected, 'to-do item has removed');
   t.end();
 });
